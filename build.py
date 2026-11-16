@@ -114,9 +114,9 @@ def icon(name, cls="ic"):
 ICON = {k: icon(k) for k in ("phone", "check", "wa")}
 
 LOGO = ('<svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">'
-        '<rect width="32" height="32" rx="8" fill="#0F2A44"/>'
+        '<rect width="32" height="32" rx="8" fill="#0B2A21"/>'
         '<path d="M16 5.5 24.5 8.6v6.1c0 5.3-3.6 9.2-8.5 11.6-4.9-2.4-8.5-6.3-8.5-11.6V8.6Z" fill="#F5A524"/>'
-        '<path d="m11.9 15.6 2.9 2.9 5.4-5.9" fill="none" stroke="#0F2A44" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'
+        '<path d="m11.9 15.6 2.9 2.9 5.4-5.9" fill="none" stroke="#0B2A21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'
         '</svg>')
 
 def btn(href, label, cls="btn-primary", ic=None, extra=""):
@@ -228,9 +228,9 @@ def map_svg(highlight=None):
              f'<desc id="map-d">A circle centred on {BASE["area_name"]}, East London, reaching {", ".join(n for n,*_ in TOWNS[-8:])} and everywhere in between.</desc>',
              '<defs><clipPath id="mc"><circle cx="%s" cy="%s" r="%s"/></clipPath></defs>' % (c, c, R + 20),
              f'<circle cx="{c}" cy="{c}" r="{R}" fill="#FFFFFF" stroke="#F5A524" stroke-opacity=".55" stroke-width="9"/>',
-             f'<circle cx="{c}" cy="{c}" r="{R}" fill="none" stroke="#0F2A44" stroke-width="1.25"/>',
-             f'<circle cx="{c}" cy="{c}" r="{r10:.1f}" fill="#EEF2F6" stroke="#0F2A44" stroke-width=".75" stroke-dasharray="3 3"/>',
-             f'<polyline clip-path="url(#mc)" points="{river}" fill="none" stroke="#B9CAD9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>']
+             f'<circle cx="{c}" cy="{c}" r="{R}" fill="none" stroke="#0B2A21" stroke-width="1.25"/>',
+             f'<circle cx="{c}" cy="{c}" r="{r10:.1f}" fill="#EEF4F0" stroke="#0B2A21" stroke-width=".75" stroke-dasharray="3 3"/>',
+             f'<polyline clip-path="url(#mc)" points="{river}" fill="none" stroke="#BCD3C6" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>']
     taken = [(c + 8, c - 24, c + 8 + 7.6 * len(BASE["area_name"]), c - 6),
              (c + R * 0.62 - 2, c + R * 0.86 - 12, c + R * 0.62 + 52, c + R * 0.86 + 3)]
     def free(box):
@@ -239,7 +239,7 @@ def map_svg(highlight=None):
     for name, lat, lng, slug in sorted(TOWNS, key=lambda z: -miles(z[1], z[2])):
         x, y = xy(lat, lng)
         hl = highlight and slug == highlight
-        parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{4 if hl else 2.6}" fill="{"#0F2A44" if hl else "#55687A"}"/>')
+        parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{4 if hl else 2.6}" fill="{"#0B2A21" if hl else "#5E7268"}"/>')
         w = 6.0 * len(name) + 2
         for anchor, box in (("start", (x + 5, y - 7, x + 6 + w, y + 6)), ("end", (x - 6 - w, y - 7, x - 5, y + 6)),
                             ("middle", (x - w / 2, y - 19, x + w / 2, y - 6))):
@@ -249,7 +249,7 @@ def map_svg(highlight=None):
                 ty = y - 9 if anchor == "middle" else y + 4
                 parts.append(f'<text x="{tx:.1f}" y="{ty:.1f}" text-anchor="{anchor}"{" class=\"base-label\"" if hl else ""}>{esc(name)}</text>')
                 break
-    parts.append(f'<circle cx="{c}" cy="{c}" r="6" fill="#0F2A44" stroke="#FFFFFF" stroke-width="2"/>'
+    parts.append(f'<circle cx="{c}" cy="{c}" r="6" fill="#0B2A21" stroke="#FFFFFF" stroke-width="2"/>'
                  f'<text class="base-label" x="{c+11}" y="{c-9}">{esc(BASE["area_name"])} (E1)</text>'
                  f'<text x="{c+R*0.62:.0f}" y="{c+R*0.86:.0f}">{BASE["radius_miles"]} miles</text></svg>')
     return "".join(parts)
@@ -495,7 +495,7 @@ def layout(p):
 <meta name="description" content="{esc(p["description"])}">
 <link rel="canonical" href="{canonical}">
 {robots}
-<meta name="theme-color" content="#0A1420">
+<meta name="theme-color" content="#0B2A21">
 <meta property="og:type" content="website"><meta property="og:site_name" content="{esc(CFG["business_name"])}">
 <meta property="og:title" content="{esc(p["title"])}"><meta property="og:description" content="{esc(p["description"])}">
 <meta property="og:url" content="{canonical}"><meta property="og:image" content="{SITE}/og.png"><meta property="og:locale" content="en_GB">

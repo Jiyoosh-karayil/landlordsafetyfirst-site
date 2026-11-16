@@ -5,7 +5,7 @@ A static site with no framework, database or plugins. `dist/` is the website.
 ## Change something
 - **Business facts, prices, picker rules, bundles, phone, form, tracking:** edit `site.config.json`
 - **Page wording:** `content.py` (home, core services, areas, about, contact, FAQ) and `content_more.py` (boiler, fire, EPC, PAT, commercial, bundles, booking, guide, reviews, legal)
-- **Look:** edit `src/styles.css` ("on site": dark photo hero, rounded cards, amber #F5A524 accent, Manrope; stand-in photos in src/img). Rules in `DESIGN.md`.
+- **Look:** edit `src/styles.css` ("on site": forest green #0B2A21, amber #F5A524 for actions, ivory #F7F3EA sections, Manrope; stand-in photos in src/img). Rules in `DESIGN.md`.
 - **Behaviour (menu, price picker, forms):** `src/main.js`. The picker maths is mirrored in `build.py` (`quote_calc`), so bundle cards and the picker always agree.
 
 Then rebuild:
