@@ -1,0 +1,127 @@
+{
+  "_readme": "Every business fact on the site comes from this file. Anything starting with TODO shows highlighted on the site and is listed when you run build.py. Run `python3 build.py --production` before going live: it refuses to build while any TODO is left.",
+
+  "site_url": "https://landlordsafetyfirst.uk",
+  "business_name": "Landlord Safety First",
+  "legal_line": "TODO: Landlord Safety First is a trading name of [company name], registered in England & Wales no. [number]",
+  "ico_number": "TODO: ICO registration number",
+  "tagline": "Landlord safety certificates in East London",
+
+  "phone_display": "TODO: phone",
+  "phone_e164": "",
+  "whatsapp_e164": "",
+  "email": "info@landlordsafetyfirst.uk",
+
+  "engineer_name": "TODO: engineer first name",
+  "years_trading": "TODO: number of",
+  "team_size_line": "a two-person team: the engineer who books you is the engineer who turns up",
+
+  "gas_safe_number": "TODO: Gas Safe reg. number",
+  "electrical_scheme": "TODO: NICEIC / NAPIT",
+  "electrical_scheme_number": "TODO: scheme membership number",
+  "insurance_line": "TODO: £X million public liability insurance",
+
+  "cert_turnaround": "TODO: confirm. Certificates emailed within 24 hours",
+  "slot_confirm_line": "TODO: confirm. We confirm your slot within 2 working hours",
+  "payment_line": "TODO: confirm. Pay by card when your slot is confirmed. Remedial work is paid on completion.",
+  "_scope_note": "Before launch, confirm the engineer personally holds the right accreditation for EPCs (Domestic Energy Assessor) and fire risk assessments. If anything is done by a partner, change the 'no subcontractors' line in content.py and the EPC / FRA pages.",
+  "epc_scope": "TODO: confirm EPCs are done by an accredited Domestic Energy Assessor in-house",
+  "fra_scope": "TODO: confirm the engineer is a competent fire risk assessor, and which property types",
+
+  "engineer_photo": "",
+  "_photo_note": "Put a real photo of the engineer (and van) in src/static/ and set the file name here, e.g. \"engineer.webp\". Until then the hero shows an example certificate pack instead of a stock photo.",
+
+  "sister_brand": { "name": "Emergency Services 24/7", "url": "https://emergencyservice247.co.uk", "line": "Electrical emergency?" },
+
+  "base": {
+    "area_name": "Whitechapel",
+    "postcode_area": "E1",
+    "locality": "London",
+    "lat": 51.5196,
+    "lng": -0.0612,
+    "radius_miles": 25
+  },
+
+  "hours": [
+    { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00" },
+    { "days": ["Saturday"], "opens": "09:00", "closes": "14:00" }
+  ],
+  "hours_display": "TODO: confirm hours. Mon–Fri 8am–6pm, Sat 9am–2pm",
+  "response_promise": "TODO: confirm. We reply to every enquiry within 2 working hours",
+
+  "vat_rate": 0.2,
+  "prices_confirmed": false,
+  "_prices_note": "All prices are ex-VAT 'from' prices. The site shows them including VAT with the ex-VAT figure alongside. ALL ARE PLACEHOLDERS — confirm every one with the client. Nothing is sold below minimum_ex on its own: cheaper items are add-ons to another visit.",
+  "prices": {
+    "hourly":             { "ex": 120, "label": "Electrical work, per hour", "note": "One-hour minimum, then charged per half hour" },
+    "eicr_flat":          { "ex": 150, "label": "EICR, flat or studio", "note": "Studio to 2 bedrooms" },
+    "eicr_house":         { "ex": 200, "label": "EICR, house", "note": "Up to 3 bedrooms" },
+    "eicr_hmo_room":      { "ex": 30,  "label": "EICR, HMO", "note": "Added per lettable room on top of the house price" },
+    "eicr_commercial":    { "ex": 250, "label": "EICR, small commercial unit", "note": "Shops and offices, quoted by circuit count" },
+    "gas_safety":         { "ex": 120, "label": "Gas safety certificate (CP12)", "note": "Boiler plus up to 2 gas appliances" },
+    "boiler_service":     { "ex": 90,  "label": "Boiler service", "note": "Added to a gas safety check. On its own the minimum visit applies" },
+    "consumer_unit":      { "ex": 600, "label": "Consumer unit replacement", "note": "Up to 8 ways, including certificate and Building Regs notification" },
+    "fire_alarm_test":    { "ex": 150, "label": "Fire alarm test and certificate", "note": "Small HMO or house, to BS 5839-6" },
+    "emergency_lighting": { "ex": 120, "label": "Emergency lighting test", "note": "Annual 3-hour test and certificate, small HMO" },
+    "fra":                { "ex": 250, "label": "Fire risk assessment", "note": "Small HMO or communal areas" },
+    "epc":                { "ex": 60,  "label": "EPC (energy certificate)", "note": "Added to another visit. On its own the minimum visit applies" },
+    "pat":                { "ex": 60,  "label": "PAT testing", "note": "Up to 10 appliances, added to another visit" },
+    "alarm_check":        { "ex": 30,  "label": "Smoke and CO alarm check", "note": "Added to another visit. Fitting priced separately" },
+    "smoke_co_alarms":    { "ex": 120, "label": "Smoke and CO alarms fitted", "note": "Hard-wired alarms, priced per property" }
+  },
+
+  "picker": {
+    "_note": "Instant price picker. A string value means 'use that key from prices'. Certificates marked cert:true count towards the bundle saving. Totals never go below minimum_ex.",
+    "minimum_ex": 120,
+    "round_to": 5,
+    "tiers": [[2, 0.10], [3, 0.15]],
+    "items": [
+      { "id": "eicr", "label": "EICR (electrical certificate)", "cert": true,
+        "base": { "flat": "eicr_flat", "house": "eicr_house", "hmo": "eicr_house" },
+        "incl_beds": { "flat": 2, "house": 3, "hmo": 0 },
+        "per_bed": { "flat": 20, "house": 25, "hmo": "eicr_hmo_room" } },
+      { "id": "gas", "label": "Gas safety certificate (CP12)", "cert": true, "base": "gas_safety" },
+      { "id": "alarms", "label": "Smoke and CO alarm check", "base": "alarm_check" },
+      { "id": "epc", "label": "EPC (energy certificate)", "base": "epc" },
+      { "id": "boiler", "label": "Boiler service", "base": "boiler_service" },
+      { "id": "pat", "label": "PAT testing (up to 10 items)", "base": "pat" },
+      { "id": "fire_alarm", "label": "Fire alarm test", "cert": true, "base": "fire_alarm_test" },
+      { "id": "em_light", "label": "Emergency lighting test", "cert": true, "base": "emergency_lighting" },
+      { "id": "fra", "label": "Fire risk assessment", "cert": true, "base": "fra" }
+    ]
+  },
+
+  "bundles": [
+    { "id": "essentials", "name": "Essentials", "for": "Every rental with gas", "type": "flat", "beds": 2,
+      "items": ["eicr", "gas"], "blurb": "The two certificates the law asks every gas-heated rental for, in one visit." },
+    { "id": "full", "name": "Full Compliance", "for": "New tenancies and licence applications", "type": "flat", "beds": 2, "popular": true,
+      "items": ["eicr", "gas", "epc", "alarms"], "blurb": "Everything a single let needs before a tenant moves in, with one renewal date to remember." },
+    { "id": "hmo", "name": "HMO / Commercial", "for": "HMOs, blocks and small premises", "type": "hmo", "beds": 5,
+      "items": ["eicr", "gas", "epc", "alarms", "fra", "em_light"], "blurb": "Full Compliance plus the fire safety paperwork HMO licences ask for." }
+  ],
+
+  "booking_embed_url": "",
+  "_booking_note": "Optional. Paste a GoHighLevel / Cal.com / Calendly booking URL to embed it on /book/. Leave empty to use the built-in booking request form.",
+
+  "form_endpoint": "",
+  "_form_note": "Paste a GoHighLevel inbound webhook, n8n webhook, Formspree or Web3Forms URL. Every form POSTs JSON with a form_type of quote, booking or reminder. Leave empty and the forms tell people to call instead.",
+
+  "analytics": {
+    "ga4_id": "",
+    "google_ads_id": "",
+    "ads_label_call": "",
+    "ads_label_whatsapp": "",
+    "ads_label_form": "",
+    "ads_label_booking": ""
+  },
+
+  "google_business_profile_url": "",
+  "google_reviews_url": "",
+  "google_rating": "",
+  "same_as": [],
+
+  "reviews": [],
+  "_reviews_note": "Add real reviews only, with permission, e.g. {\"name\": \"Sarah K.\", \"area\": \"Hackney\", \"text\": \"...\", \"service\": \"EICR\"}. Review sections stay hidden until this list has entries.",
+
+  "last_reviewed": "2026-11-15"
+}

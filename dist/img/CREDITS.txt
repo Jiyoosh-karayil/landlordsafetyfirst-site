@@ -1,0 +1,13 @@
+Stand-in stock photos from Unsplash (free to use commercially under the Unsplash License, no attribution required).
+Replace with real photos of the engineer, van and jobs when available: keep the same file names and sizes.
+
+hero.webp / hero-m.webp  https://unsplash.com/photos/_2AlIm-F6pw   (electrician in yellow hard hat)
+testing.webp             https://unsplash.com/photos/PkHf7BUWbtk   (testing a panel with a multimeter)
+engineer.webp            https://unsplash.com/photos/GXLPLG3_Vf4   (electrician working on a panel)
+street.webp              https://unsplash.com/photos/YjmnoFxpgIU   (red-brick London street)
+svc-eicr.webp            https://unsplash.com/photos/kK7uPfb2YWU   (circuit breakers)
+svc-gas.webp             https://unsplash.com/photos/CdW4DAF5i7Q   (gas burner)
+svc-fire.webp            https://unsplash.com/photos/OLSy8_770lw   (fire alarm sounder)
+svc-remedial.webp        https://unsplash.com/photos/U3GiK1u5j24   (cable in gloved hand)
+svc-cu.webp              https://unsplash.com/photos/47jO5Y8nsYo   (wiring in a board)
+svc-epc.webp             https://unsplash.com/photos/lOmcjfGlymU   (row of terraced houses)
